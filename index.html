@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartlineCore</title>
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="./common/css/aos.css">
+
+    <!-- Global Theme CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Tailwind CDN with Custom Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "var(--color-primary)",
+                        dark: "var(--color-dark)",
+                        light: "var(--color-light)",
+                        grayCustom: "var(--color-gray)",
+                        textWhite : "var(--color-white)"
+                    },
+                    borderRadius: {
+                        sm: "var(--radius-sm)",
+                        md: "var(--radius-md)",
+                        lg: "var(--radius-lg)"
+                    },
+                    spacing: {
+                        sm: "var(--spacing-sm)",
+                        md: "var(--spacing-md)",
+                        lg: "var(--spacing-lg)"
+                    },
+                    boxShadow: {
+                        soft: "var(--shadow-soft)",
+                        hard: "var(--shadow-hard)"
+                    },
+                    animation: {
+                        slow: `fade var(--animate-slow) ease-in-out`,
+                        medium: `fade var(--animate-medium) ease-in-out`,
+                        fast: `fade var(--animate-fast) ease-in-out`,
+                    },
+                    keyframes: {
+                        fade: {
+                            '0%': { opacity: 0, transform: "translateY(20px)" },
+                            '100%': { opacity: 1, transform: "translateY(0px)" },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lexend+Giga&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-light text-darkc transition-colors duration-300">
+
+    <!-- NAVBAR -->
+<header class="w-full sticky top-0 z-40 bg-light/80 backdrop-blur-md shadow-soft">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-12">
+    <div class="flex items-center justify-between py-4">
+
+      <!-- Brand -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-md bg-primary flex items-center justify-center text-white font-bold">SC</div>
+        <span class="font-heading text-lg">SmartCoreLine</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-sm font-medium text-dark hover:text-primary">Home</a>
+        <a href="about.html" class="text-sm font-medium text-dark hover:text-primary">About</a>
+
+        <!-- SERVICES DROPDOWN -->
+        <div class="relative group">
+          <button class="flex items-center gap-2 text-sm font-medium text-dark hover:text-primary">
+            Services
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </button>
+
+          <div class="absolute left-0 mt-3 w-72 bg-light rounded-md shadow-soft 
+          opacity-0 group-hover:opacity-100 invisible group-hover:visible 
+          transform translate-y-1 group-hover:translate-y-0 transition-all">
+
+            <!-- Services List -->
+            <div class="py-2 text-textWhite">
+
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Recruitment Support</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Recruitment Assistance</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Managed Searches</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Managed Service Provider</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Workload Management</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Back-End Support System</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Staff Augmentation</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">RPO (Talent Sourcing & Screening)</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Background Checks Coordination</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Onboarding Documentation Support</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Training & Development Content</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Administrative Support</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Operational Back Office</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">VA Services</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Creative Services</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Paralegal Services</a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- INDUSTRIES DROPDOWN -->
+        <div class="relative group">
+          <button class="flex items-center gap-2 text-sm font-medium text-dark hover:text-primary">
+            Industries
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </button>
+
+          <div class="absolute left-0 mt-3 w-72 bg-light rounded-md shadow-soft 
+          opacity-0 group-hover:opacity-100 invisible group-hover:visible 
+          transform translate-y-1 group-hover:translate-y-0 transition-all">
+
+            <div class="py-2 text-textWhite">
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Healthcare Talent Solutions</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Information Technology</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Life Sciences Talent Aid</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Engineering Staffing Assistance</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Manufacturing Recruitment Help</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">BFSI Talent Coordination</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Consumer Brands Recruitment Aid</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Supply Chain & Logistics Support</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Pharma Recruitment Assistance</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">VA Services</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Creative Services</a>
+              <a class="block px-4 py-2 text-sm hover:bg-grayCustom">Paralegal Services</a>
+            </div>
+
+          </div>
+        </div>
+
+        <a href="contact.html" class="text-sm font-medium text-dark hover:text-primary">Contact</a>
+      </nav>
+
+      <!-- RIGHT CONTROLS (THEME SWITCH + MOBILE MENU) -->
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="hidden md:inline-flex px-3 py-2 rounded-md bg-primary text-white text-sm shadow-soft">
+          <svg id="moonIcon" class="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.2"/></svg>
+        </button>
+
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-md border border-gray-300">
+          <svg class="w-6 h-6 text-dark" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+    <!-- JS FILES -->
+    <script src="./common/js/aos.js"></script>
+
+
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
