@@ -1,5 +1,5 @@
   // --- AOS animations ---
-  AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic' });
+  AOS.init({ once: false, duration: 800, easing: 'ease-out-cubic' });
 
 
 
