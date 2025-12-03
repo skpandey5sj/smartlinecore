@@ -1,0 +1,94 @@
+/* ================================
+   GLOBAL THEME VARIABLES
+================================ */
+:root {
+  /* Font */
+  --font: "Roboto", sans-serif;
+  /* LIGHT THEME COLORS */
+  --color-primary: #004AAD;
+  --color-dark: #000000;
+  --color-gray: #959595;
+  --color-light: #FFFFFF;
+
+  /* textcolor  */
+    --color-white:black;
+  /* Global UI tokens */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 22px;
+
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+
+  --shadow-soft: 0px 4px 20px rgba(0,0,0,0.08);
+  --shadow-hard: 0px 6px 35px rgba(0,0,0,0.15);
+
+  /* Animation Tokens */
+  --animate-slow: 1.5s;
+  --animate-medium: 1s;
+  --animate-fast: 0.5s;
+}
+
+/* ================================
+   DARK MODE THEME VARIABLES
+================================ */
+.dark {
+  --color-primary: #004AAD;
+  --color-dark: #FFFFFF;
+  --color-light: #111827;
+  --color-gray: #3A3A3A;
+  --color-white:white;
+
+}
+
+/* ================================
+   GLOBAL FONT APPLY
+================================ */
+body, h1, h2, h3, h4, h5, h6, p, a, li {
+  font-family: var(--font);
+}
+
+
+.mobile-dd-item {
+  @apply text-base text-dark dark:text-white hover:text-primary py-1;
+}
+
+    /* Desktop Scrollbar - Light Mode */
+    body::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: #f0f0f0;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background-color: #a0a0a0;
+      border-radius: 0px;
+      border: 1px solid #f0f0f0; /* padding effect */
+    }
+
+    /* Desktop Scrollbar - Dark Mode */
+    body.dark::-webkit-scrollbar-track {
+      background: #1f1f1f;
+    }
+
+    body.dark::-webkit-scrollbar-thumb {
+      background-color: #555555;
+      border: 3px solid #1f1f1f;
+    }
+
+    /* Optional: Hover effect */
+    body::-webkit-scrollbar-thumb:hover {
+      background-color: #888;
+    }
+
+    body.dark::-webkit-scrollbar-thumb:hover {
+      background-color: #777;
+    }
+
+    input,textarea{
+      outline: none !important;
+      /* border: none !important; */
+    }
