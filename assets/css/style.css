@@ -11,7 +11,7 @@
   --color-light: #FFFFFF;
 
   /* textcolor  */
-    --color-white:black;
+  --color-white: black;
   /* Global UI tokens */
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -21,8 +21,8 @@
   --spacing-md: 16px;
   --spacing-lg: 32px;
 
-  --shadow-soft: 0px 4px 20px rgba(0,0,0,0.08);
-  --shadow-hard: 0px 6px 35px rgba(0,0,0,0.15);
+  --shadow-soft: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hard: 0px 6px 35px rgba(0, 0, 0, 0.15);
 
   /* Animation Tokens */
   --animate-slow: 1.5s;
@@ -38,14 +38,23 @@
   --color-dark: #FFFFFF;
   --color-light: #111827;
   --color-gray: #3A3A3A;
-  --color-white:white;
+  --color-white: white;
 
 }
 
 /* ================================
    GLOBAL FONT APPLY
 ================================ */
-body, h1, h2, h3, h4, h5, h6, p, a, li {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li {
   font-family: var(--font);
 }
 
@@ -54,41 +63,180 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
   @apply text-base text-dark dark:text-white hover:text-primary py-1;
 }
 
-    /* Desktop Scrollbar - Light Mode */
-    body::-webkit-scrollbar {
-      width: 6px;
-    }
+/* Desktop Scrollbar - Light Mode */
+body::-webkit-scrollbar {
+  width: 6px;
+}
 
-    body::-webkit-scrollbar-track {
-      background: #f0f0f0;
-    }
+body::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
 
-    body::-webkit-scrollbar-thumb {
-      background-color: #a0a0a0;
-      border-radius: 0px;
-      border: 1px solid #f0f0f0; /* padding effect */
-    }
+body::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 0px;
+  border: 1px solid #f0f0f0;
+  /* padding effect */
+}
 
-    /* Desktop Scrollbar - Dark Mode */
-    body.dark::-webkit-scrollbar-track {
-      background: #1f1f1f;
-    }
+/* Desktop Scrollbar - Dark Mode */
+body.dark::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
 
-    body.dark::-webkit-scrollbar-thumb {
-      background-color: #555555;
-      border: 3px solid #1f1f1f;
-    }
+body.dark::-webkit-scrollbar-thumb {
+  background-color: #555555;
+  border: 3px solid #1f1f1f;
+}
 
-    /* Optional: Hover effect */
-    body::-webkit-scrollbar-thumb:hover {
-      background-color: #888;
-    }
+/* Optional: Hover effect */
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
 
-    body.dark::-webkit-scrollbar-thumb:hover {
-      background-color: #777;
-    }
+body.dark::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
 
-    input,textarea{
-      outline: none !important;
-      /* border: none !important; */
-    }
+input,
+textarea {
+  outline: none !important;
+  /* border: none !important; */
+}
+
+
+.challenge-card {
+  @apply bg-white/10 p-8 rounded-2xl border border-white/20 text-center text-lg font-semibold backdrop-blur transition-all hover:bg-white/20 hover:shadow-xl;
+}
+
+.form-input {
+  @apply px-6 py-5 rounded-xl bg-white/20 border border-white/30 text-white focus:border-white focus:outline-none placeholder-gray-300;
+}
+
+
+
+/* From Uiverse.io by alexruix */
+.card {
+  /* width: 190px; */
+  /* height: 254px; */
+  border-radius: 20px;
+  background: #f5f5f5;
+  position: relative;
+  padding: 1.8rem;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;
+  overflow: visible;
+}
+
+.card-details {
+  color: black;
+  height: 100%;
+  gap: .5em;
+  display: grid;
+  place-content: center;
+}
+
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #004AAD;
+  color: #fff;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+}
+
+.text-body {
+  color: rgb(134, 134, 134);
+}
+
+/*Text*/
+.text-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/*Hover*/
+.card:hover {
+  border-color: #004AAD;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+
+
+
+.animated-fill {
+  background: linear-gradient(90deg, white 0%, white 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: fillMove 3.5s linear infinite;
+}
+
+@keyframes fillMove {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Dark mode white fill also visible */
+.dark .animated-fill {
+  color: white;
+  background: linear-gradient(90deg, #000B18 0%, #000B18 50%, transparent 50%);
+  background-size: 200% 100%;
+}
+
+
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+
+
+
+
+/* form  contact */
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
