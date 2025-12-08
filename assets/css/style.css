@@ -237,6 +237,19 @@ textarea {
 }
 
 
-  .perspective-1000 {
-    perspective: 1000px;
-  }
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Fix AOS overflow on mobile & desktop */
+.overflow-fix {
+  overflow-x: hidden !important;
+}
+
+
+
+/* About section hero  */
+@keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

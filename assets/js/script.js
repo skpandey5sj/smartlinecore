@@ -1,5 +1,11 @@
 // --- AOS animations ---
-AOS.init({ once: false, duration: 800, easing: 'ease-out-cubic' });
+AOS.init({
+  once: false,
+  duration: 800,
+  easing: 'ease-out-cubic',
+  offset: 0,
+  // disable: window.innerWidth < 768 
+});
 
 
 
@@ -115,9 +121,10 @@ function callNow() {
 
 
 
- const form = document.getElementById("contactForm");
-  const successMessage = document.getElementById("successMessage");
+const form = document.getElementById("contactForm");
+const successMessage = document.getElementById("successMessage");
 
+if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault(); // Stop page reload
 
@@ -142,21 +149,23 @@ function callNow() {
   });
 
 
+}
 
-  //  we work script
+//  we work script
 
-    const tilt = document.getElementById("tiltImage");
+const tilt = document.getElementById("tiltImage");
 
+if (tilt) {
   tilt.addEventListener("mousemove", (e) => {
     const rect = tilt.getBoundingClientRect();
-    const x = e.clientX - rect.left; 
+    const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * -12; 
-    const rotateY = ((x - centerX) / centerX) * 12; 
+    const rotateX = ((y - centerY) / centerY) * -12;
+    const rotateY = ((x - centerX) / centerX) * 12;
 
     tilt.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
   });
@@ -165,26 +174,64 @@ function callNow() {
     tilt.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
   });
 
+}
 
 
 
-  // why schoose us 
 
-  const tiltImg = document.getElementById("tiltWhyUs");
 
-tiltImg.addEventListener("mousemove", (e) => {
-  const rect = tiltImg.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
+// why schoose us 
 
-  const rotateX = ((y - centerY) / centerY) * -10;
-  const rotateY = ((x - centerX) / centerX) * 10;
+const tiltImg = document.getElementById("tiltWhyUs");
 
-  tiltImg.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-});
+if (tiltImg) {
 
-tiltImg.addEventListener("mouseleave", () => {
-  tiltImg.style.transform = "rotateX(0) rotateY(0) scale(1)";
-});
+  tiltImg.addEventListener("mousemove", (e) => {
+    const rect = tiltImg.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    tiltImg.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+  });
+
+  tiltImg.addEventListener("mouseleave", () => {
+    tiltImg.style.transform = "rotateX(0) rotateY(0) scale(1)";
+  });
+
+
+}
+
+
+
+//  ABOUT SECTION LAST CAREER SCRIPT 
+
+// MAGNETIC BUTTON
+const btn = document.getElementById("magneticBtn");
+ if(btn){
+      btn.addEventListener("mousemove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "translate(0,0)";
+    });
+
+    // 3D Tilt Effect
+    const ctaBox = document.getElementById("ctaBox");
+    ctaBox.addEventListener("mousemove", (e) => {
+      const rect = ctaBox.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      ctaBox.style.transform = `rotateX(${y * 8}deg) rotateY(${x * 8}deg)`;
+    });
+    ctaBox.addEventListener("mouseleave", () => {
+      ctaBox.style.transform = "rotateX(0deg) rotateY(0deg)";
+    });
+ }
