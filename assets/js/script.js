@@ -235,3 +235,78 @@ const btn = document.getElementById("magneticBtn");
       ctaBox.style.transform = "rotateX(0deg) rotateY(0deg)";
     });
  }
+
+
+
+
+ // -------------------- SMARTLINE SPA ROUTER -------------------- //
+
+const app = document.getElementById("app");
+
+// Check if link is internal
+function isInternalLink(url) {
+  if (!url) return false;
+  return (
+    !url.startsWith("http") &&
+    !url.startsWith("mailto") &&
+    !url.startsWith("tel") &&
+    !url.startsWith("#") &&
+    !url.startsWith("javascript:")
+  );
+}
+
+// MAIN NAVIGATION HANDLER
+document.addEventListener("click", function (e) {
+  const link = e.target.closest("a");
+  if (!link) return;
+
+  const url = link.getAttribute("href");
+
+  if (!isInternalLink(url)) return;
+
+  e.preventDefault();
+  loadPage(url);
+});
+
+// LOAD PAGE CONTENT INTO MAIN
+async function loadPage(url) {
+  try {
+    const res = await fetch(url);
+    const html = await res.text();
+
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html;
+
+    let newMain = tempDiv.querySelector("main");
+
+    if (!newMain) {
+      console.warn("Main tag not found in:", url);
+      app.innerHTML = `<div class='p-10 text-center text-red-500'>Main content missing in ${url}</div>`;
+      return;
+    }
+
+    // Replace main with new content
+    app.innerHTML = newMain.innerHTML;
+
+    // Update Browser URL
+    history.pushState({ url }, "", url);
+
+    // Reinitialize AOS animations
+    if (typeof AOS !== "undefined") {
+      AOS.init();
+      AOS.refreshHard();
+    }
+
+  } catch (err) {
+    console.error("PAGE LOAD ERROR:", err);
+    app.innerHTML = `<div class='p-10 text-red-500'>Error loading ${url}</div>`;
+  }
+}
+
+// Handle back/forward navigation
+window.addEventListener("popstate", (e) => {
+  if (e.state?.url) loadPage(e.state.url);
+});
+
+// DEFAULT LOAD: Load homepage section automatically
+loadPage("index.html"); // If your home is index.html sections, tell me — I will adjust.
